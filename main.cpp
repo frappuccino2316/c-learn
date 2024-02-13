@@ -1,15 +1,17 @@
 #include <iostream>
-#include <string>
-#include <bitset>
 
-void HelloWorld(int n) {
-    for (int i = 0; i < n; ++i) {
-        std::cout << "[" << i << "] " << "Hello World!" << std::endl;
-    }
-}
+int Add(int a, int b);
 
 int main() {
-    HelloWorld(15);
+    int (*func)(int, int) = Add;
+
+    int a = func(14, 56);
+
+    std::cout << a << std::endl;
 
     return 0;
+}
+
+int Add(int a, int b) {
+    return a + b;
 }
